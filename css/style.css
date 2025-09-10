@@ -1,0 +1,296 @@
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  position: absolute;
+  font-family: 'Chivo Mono', monospace;
+  width: 100%;
+  height: 100%;
+}
+
+header p {
+  margin: 0;
+}
+
+header a {
+  color: black;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: rgb(142, 140, 140);
+}
+
+
+.container {
+  width: 800px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.white {
+  height: 100px;
+  width: 100px;
+  background-color: #f0d9b5;
+}
+
+.black {
+  height: 100px;
+  width: 100px;
+  background-color: #b58863;
+}
+
+.white, .black {
+  transform-style: preserve-3d;
+  box-shadow:
+    1px 1px 0 1px #f9f9fb,
+    -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+    28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+  transition:
+    .4s ease-in-out transform,
+    .4s ease-in-out box-shadow;
+}
+
+.white:hover, .black:hover {
+    transform:
+      translate3d(0px, -10px, 35px);
+    box-shadow:
+      1px 1px 0 1px #f9f9fb,
+      -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+      54px 54px 28px -10px rgba(34, 33, 81, 0.15);
+}
+
+
+.container {
+  transform:
+    rotateX(51deg)
+    rotateZ(43deg);
+  transform-style: preserve-3d;
+}
+
+.pieces img {
+  width: 60px;
+  transform-style: preserve-3d;
+}
+
+img.pawnWhite, img.pawnBlack {
+  transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+img.rookWhiteL, img.rookWhiteR, img.rookBlackL, img.rookBlackR {
+  transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+img.knightWhite, img.knightBlack {
+  transform: translate3d(30px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+img.bishopWhiteL, img.bishopWhiteR, img.bishopBlackL, img.bishopBlackR {
+  transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+img.queenWhite, img.queenBlack {
+  transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+img.kingWhite,img.kingBlack {
+  transform: translate3d(25px, 0px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);
+}
+
+.pieces img:hover {
+  cursor: pointer;
+}
+
+
+.unselectable {
+  -webkit-tap-highlight-color:transparent;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(231, 229, 229, 0.5);
+  -webkit-box-shadow: none;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: none;
+}
+/******************************************
+/* ANIMATIONS
+/*******************************************/
+
+/* Pawn */
+@keyframes movePawnWhiteAni {
+  0% {transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(35px, 120px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.movePawnWhite {
+  animation-name: movePawnWhiteAni;
+  animation-duration: 2.5s;
+}
+
+@keyframes movePawnBlackAni {
+  0% {transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(35px, -80px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(35px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.movePawnBlack{
+  animation-name: movePawnBlackAni;
+  animation-duration: 2.5s;
+}
+
+
+
+/* Rook */
+@keyframes moveRookWLAni {
+  0% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(30px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(725px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(30px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveRookWhiteL {
+  animation-name: moveRookWLAni;
+  animation-duration: 3.5s;
+}
+
+@keyframes moveRookWRAni {
+  0% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(30px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(-670px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(30px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveRookWhiteR {
+  animation-name: moveRookWRAni;
+  animation-duration: 3.5s;
+}
+
+
+@keyframes moveRookBLAni {
+  0% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(30px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(730px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(30px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveRookBlackL {
+  animation-name: moveRookBLAni;
+  animation-duration: 3.5s;
+}
+
+@keyframes moveRookBRAni {
+  0% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(30px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(-670px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(30px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 5px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveRookBlackR {
+  animation-name: moveRookBRAni;
+  animation-duration: 3.5s;
+}
+
+
+
+/* Knight */
+@keyframes moveKnightWAni {
+  0% {transform: translate3d(30px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(135px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(135px, 220px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(135px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveKnightWhite {
+  animation-name: moveKnightWAni;
+  animation-duration: 3.5s;
+}
+
+@keyframes moveKnightBAni {
+  0% {transform: translate3d(30px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  25% {transform: translate3d(135px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(135px, -175px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  75% {transform: translate3d(135px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 20px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveKnightBlack {
+  animation-name: moveKnightBAni;
+  animation-duration: 3.5s;
+}
+
+
+
+/* Bishop */
+@keyframes moveBishopWLAni {
+  0% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(530px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveBishopWhiteL {
+  animation-name: moveBishopWLAni;
+  animation-duration: 3s;
+}
+
+@keyframes moveBishopWRAni {
+  0% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(-470px, 510px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveBishopWhiteR {
+  animation-name: moveBishopWRAni;
+  animation-duration: 3s;
+}
+
+
+@keyframes moveBishopBLAni {
+  0% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(530px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveBishopBlackL {
+  animation-name: moveBishopBLAni;
+  animation-duration: 3s;
+}
+
+@keyframes moveBishopBRAni {
+  0% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  50% {transform: translate3d(-470px, -490px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+  100% {transform: translate3d(30px, 10px, 60px) rotateX(308deg) rotateY(38deg) rotateZ(336deg);}
+}
+
+.moveBishopBlackR{
+  animation-name: moveBishopBRAni;
+  animation-duration: 3s;
+}
