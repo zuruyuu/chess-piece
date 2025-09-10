@@ -1,6 +1,7 @@
 # chess-piece
 Chess pieces and their movements.
 - old project
+- incomplete
 - only made with html, css, and vanilla js
 
 <a href="https://zuruyuu.github.io/chess-piece/">here</a>
